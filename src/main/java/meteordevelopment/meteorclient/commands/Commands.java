@@ -81,6 +81,7 @@ public class Commands {
         add(new SpawnerCommand());
         add(new BannerCommand());
         add(new FireworkCommand());
+        add(new SuperAttributesCommand());
 
         COMMANDS.sort(Comparator.comparing(Command::getName));
 

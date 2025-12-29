@@ -104,6 +104,11 @@ public class BannerCommand extends Command {
                 info("Created earth/globe banner");
                 return SINGLE_SUCCESS;
             }))
+            .then(literal("ww2").executes(context -> {
+                giveWW2Banner();
+                info("Created WW2 banner for trolling");
+                return SINGLE_SUCCESS;
+            }))
         );
 
         builder.then(literal("solid")
@@ -261,6 +266,67 @@ public class BannerCommand extends Command {
             registry.streamEntries().forEach(pattern -> {
                 if (pattern.registryKey().getValue().getPath().equals("globe")) {
                     patternLayers.add(new BannerPatternsComponent.Layer(pattern, DyeColor.GREEN));
+                }
+            });
+        });
+
+        banner.set(DataComponentTypes.BANNER_PATTERNS, new BannerPatternsComponent(patternLayers));
+        giveItem(banner);
+    }
+
+    private void giveWW2Banner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack banner = new ItemStack(Items.RED_BANNER);
+        List<BannerPatternsComponent.Layer> patternLayers = new ArrayList<>();
+
+        mc.getNetworkHandler().getRegistryManager().getOptional(RegistryKeys.BANNER_PATTERN).ifPresent(registry -> {
+            registry.streamEntries().forEach(pattern -> {
+                String name = pattern.registryKey().getValue().getPath();
+                if (name.equals("circle")) {
+                    patternLayers.add(new BannerPatternsComponent.Layer(pattern, DyeColor.WHITE));
+                }
+            });
+            registry.streamEntries().forEach(pattern -> {
+                String name = pattern.registryKey().getValue().getPath();
+                if (name.equals("stripe_center")) {
+                    patternLayers.add(new BannerPatternsComponent.Layer(pattern, DyeColor.BLACK));
+                }
+            });
+            registry.streamEntries().forEach(pattern -> {
+                String name = pattern.registryKey().getValue().getPath();
+                if (name.equals("stripe_middle")) {
+                    patternLayers.add(new BannerPatternsComponent.Layer(pattern, DyeColor.BLACK));
+                }
+            });
+            registry.streamEntries().forEach(pattern -> {
+                String name = pattern.registryKey().getValue().getPath();
+                if (name.equals("square_top_left")) {
+                    patternLayers.add(new BannerPatternsComponent.Layer(pattern, DyeColor.BLACK));
+                }
+            });
+            registry.streamEntries().forEach(pattern -> {
+                String name = pattern.registryKey().getValue().getPath();
+                if (name.equals("square_bottom_right")) {
+                    patternLayers.add(new BannerPatternsComponent.Layer(pattern, DyeColor.BLACK));
+                }
+            });
+            registry.streamEntries().forEach(pattern -> {
+                String name = pattern.registryKey().getValue().getPath();
+                if (name.equals("stripe_top")) {
+                    patternLayers.add(new BannerPatternsComponent.Layer(pattern, DyeColor.RED));
+                }
+            });
+            registry.streamEntries().forEach(pattern -> {
+                String name = pattern.registryKey().getValue().getPath();
+                if (name.equals("stripe_bottom")) {
+                    patternLayers.add(new BannerPatternsComponent.Layer(pattern, DyeColor.RED));
+                }
+            });
+            registry.streamEntries().forEach(pattern -> {
+                String name = pattern.registryKey().getValue().getPath();
+                if (name.equals("border")) {
+                    patternLayers.add(new BannerPatternsComponent.Layer(pattern, DyeColor.BLACK));
                 }
             });
         });

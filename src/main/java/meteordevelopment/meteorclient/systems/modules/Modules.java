@@ -27,6 +27,7 @@ import meteordevelopment.meteorclient.systems.modules.combat.AimLock;
 import meteordevelopment.meteorclient.systems.modules.misc.*;
 import meteordevelopment.meteorclient.systems.modules.misc.swarm.Swarm;
 import meteordevelopment.meteorclient.systems.modules.misc.TabCompleteExploit;
+import meteordevelopment.meteorclient.systems.modules.misc.ServerCrasher;
 import meteordevelopment.meteorclient.systems.modules.movement.*;
 import meteordevelopment.meteorclient.systems.modules.movement.elytrafly.ElytraFly;
 import meteordevelopment.meteorclient.systems.modules.movement.BoatFly;
@@ -606,5 +607,6 @@ public class Modules extends System<Modules> {
         add(new Spam());
         add(new Swarm());
         add(new TabCompleteExploit());
+        add(new ServerCrasher());
     }
 }
