@@ -48,6 +48,7 @@ public class KitCommand extends Command {
             kitAddDefault(1, "legit", "legit.json", Items.RED_SHULKER_BOX);
             kitAddDefault(2, "unfair", "unfairpvp.json", Items.BLUE_SHULKER_BOX);
             kitAddDefault(3, "grief", "grief.json", Items.YELLOW_SHULKER_BOX);
+            kitAddDefault(4, "spawners", "spawners.json", Items.ORANGE_SHULKER_BOX);
         } catch (IOException e) {
             MeteorClient.LOG.error("Failed to create kits folder", e);
         }
