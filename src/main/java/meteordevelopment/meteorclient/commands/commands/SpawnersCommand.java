@@ -106,7 +106,7 @@ public class SpawnersCommand extends Command {
         int given = 0;
         for (int i = 0; i < nbtList.size() && (startSlot + i) < 36; i++) {
             try {
-                NbtCompound nbt = StringNbtReader.parse(nbtList.get(i));
+                NbtCompound nbt = StringNbtReader.readCompound(nbtList.get(i));
                 ItemStack stack = new ItemStack(Items.SPAWNER, 64);
                 
                 if (nbt.contains("components")) {
