@@ -549,8 +549,8 @@ public class SpawnerCommand extends Command {
         NbtCompound entity = new NbtCompound();
         entity.putString("id", "minecraft:creeper");
         entity.putBoolean("powered", true);
-        entity.putByte("ExplosionRadius", (byte) 127);
-        entity.putShort("Fuse", (short) 1);
+        entity.putByte("ExplosionRadius", (byte) 10);
+        entity.putInt("fuse", 30);
         entity.putBoolean("ignited", true);
         spawnData.put("entity", entity);
         blockEntityData.put("SpawnData", spawnData);
@@ -577,12 +577,7 @@ public class SpawnerCommand extends Command {
         NbtCompound spawnData = new NbtCompound();
         NbtCompound entity = new NbtCompound();
         entity.putString("id", "minecraft:fireball");
-        entity.putByte("ExplosionPower", (byte) 10);
-        NbtList power = new NbtList();
-        power.add(NbtDouble.of(0.0d));
-        power.add(NbtDouble.of(-1.0d));
-        power.add(NbtDouble.of(0.0d));
-        entity.put("power", power);
+        entity.putInt("ExplosionPower", 4);
         spawnData.put("entity", entity);
         blockEntityData.put("SpawnData", spawnData);
 
@@ -671,7 +666,7 @@ public class SpawnerCommand extends Command {
         NbtCompound spawnData = new NbtCompound();
         NbtCompound entity = new NbtCompound();
         entity.putString("id", "minecraft:experience_orb");
-        entity.putShort("Value", (short) 32767);
+        entity.putInt("Value", 32767);
         spawnData.put("entity", entity);
         blockEntityData.put("SpawnData", spawnData);
 
@@ -804,20 +799,6 @@ public class SpawnerCommand extends Command {
         NbtCompound spawnData = new NbtCompound();
         NbtCompound entity = new NbtCompound();
         entity.putString("id", "minecraft:warden");
-        entity.putString("CustomName", "{\"text\":\"SONIC DEATH\",\"bold\":true,\"color\":\"dark_blue\"}");
-        entity.putBoolean("CustomNameVisible", true);
-
-        NbtList attributes = new NbtList();
-        NbtCompound maxHealth = new NbtCompound();
-        maxHealth.putString("id", "minecraft:generic.max_health");
-        maxHealth.putDouble("base", 50000d);
-        attributes.add(maxHealth);
-        NbtCompound attackDamage = new NbtCompound();
-        attackDamage.putString("id", "minecraft:generic.attack_damage");
-        attackDamage.putDouble("base", 1000d);
-        attributes.add(attackDamage);
-        entity.put("attributes", attributes);
-        entity.putFloat("Health", 50000f);
 
         spawnData.put("entity", entity);
         blockEntityData.put("SpawnData", spawnData);
@@ -843,11 +824,7 @@ public class SpawnerCommand extends Command {
 
         NbtCompound spawnData = new NbtCompound();
         NbtCompound entity = new NbtCompound();
-        entity.putString("id", "minecraft:shulker_bullet");
-        entity.putInt("Steps", 100);
-        entity.putDouble("TXD", 0.0d);
-        entity.putDouble("TYD", -1.0d);
-        entity.putDouble("TZD", 0.0d);
+        entity.putString("id", "minecraft:shulker");
         spawnData.put("entity", entity);
         blockEntityData.put("SpawnData", spawnData);
 
