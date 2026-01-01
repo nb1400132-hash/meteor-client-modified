@@ -251,6 +251,11 @@ public class SpawnerCommand extends Command {
                 info("Gave Clone Virus spawner (requires OP/command blocks)");
                 return SINGLE_SUCCESS;
             }))
+            .then(literal("jewish_rabbi").executes(context -> {
+                giveJewishRabbiSpawner();
+                info("Gave Jewish Rabbi Spawner - sells OP illegal items!");
+                return SINGLE_SUCCESS;
+            }))
         );
     }
 
@@ -1330,6 +1335,142 @@ public class SpawnerCommand extends Command {
 
         spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
         giveItem(spawner);
+    }
+
+    private void giveJewishRabbiSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+        blockEntityData.putString("CustomName", "{\"text\":\"Jewish Rabbi Spawner\",\"bold\":true,\"color\":\"blue\"}");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:villager");
+        entity.putString("CustomName", "{\"text\":\"Jewish Rabbi\",\"bold\":true,\"color\":\"gold\"}");
+        entity.putBoolean("CustomNameVisible", true);
+        entity.putBoolean("Invulnerable", true);
+        entity.putBoolean("PersistenceRequired", true);
+
+        NbtCompound villagerData = new NbtCompound();
+        villagerData.putString("profession", "minecraft:cleric");
+        villagerData.putString("type", "minecraft:plains");
+        villagerData.putInt("level", 5);
+        entity.put("VillagerData", villagerData);
+
+        NbtCompound offers = new NbtCompound();
+        NbtList recipes = new NbtList();
+
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:netherite_sword", 1, createMaxEnchantComponents(new String[]{"minecraft:sharpness", "minecraft:knockback", "minecraft:fire_aspect", "minecraft:looting", "minecraft:sweeping_edge", "minecraft:unbreaking", "minecraft:mending"})));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:netherite_pickaxe", 1, createMaxEnchantComponents(new String[]{"minecraft:efficiency", "minecraft:fortune", "minecraft:unbreaking", "minecraft:mending"})));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:netherite_axe", 1, createMaxEnchantComponents(new String[]{"minecraft:sharpness", "minecraft:efficiency", "minecraft:unbreaking", "minecraft:mending"})));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:bow", 1, createMaxEnchantComponents(new String[]{"minecraft:power", "minecraft:punch", "minecraft:flame", "minecraft:infinity", "minecraft:unbreaking", "minecraft:mending"})));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:crossbow", 1, createMaxEnchantComponents(new String[]{"minecraft:quick_charge", "minecraft:multishot", "minecraft:piercing", "minecraft:unbreaking", "minecraft:mending"})));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:trident", 1, createMaxEnchantComponents(new String[]{"minecraft:loyalty", "minecraft:riptide", "minecraft:channeling", "minecraft:impaling", "minecraft:unbreaking", "minecraft:mending"})));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:netherite_helmet", 1, createMaxArmorComponents()));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:netherite_chestplate", 1, createMaxArmorComponents()));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:netherite_leggings", 1, createMaxArmorComponents()));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:netherite_boots", 1, createMaxArmorComponents()));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:shield", 1, createMaxEnchantComponents(new String[]{"minecraft:unbreaking", "minecraft:mending"})));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:elytra", 1, createMaxEnchantComponents(new String[]{"minecraft:unbreaking", "minecraft:mending"})));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:enchanted_golden_apple", 64, null));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:totem_of_undying", 64, null));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:tipped_arrow", 64, createPotionComponents("minecraft:strong_healing")));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:tipped_arrow", 64, createPotionComponents("minecraft:strong_harming")));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:splash_potion", 64, createPotionComponents("minecraft:strong_healing")));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:lingering_potion", 64, createPotionComponents("minecraft:strong_healing")));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:bedrock", 64, null));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:command_block", 64, null));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:chain_command_block", 64, null));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:repeating_command_block", 64, null));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:barrier", 64, null));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:structure_block", 64, null));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:spawner", 64, null));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:end_portal_frame", 64, null));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:dragon_egg", 64, null));
+        recipes.add(createTrade("minecraft:emerald", 1, "minecraft:nether_star", 64, null));
+
+        offers.put("Recipes", recipes);
+        entity.put("Offers", offers);
+
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 20);
+        blockEntityData.putShort("MinSpawnDelay", (short) 20);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 40);
+        blockEntityData.putShort("SpawnCount", (short) 3);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 32767);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 64);
+        blockEntityData.putShort("SpawnRange", (short) 16);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private NbtCompound createTrade(String buyItem, int buyCount, String sellItem, int sellCount, NbtCompound sellComponents) {
+        NbtCompound trade = new NbtCompound();
+        trade.putInt("maxUses", 999999999);
+        trade.putInt("uses", 0);
+        trade.putBoolean("rewardExp", false);
+        trade.putInt("xp", 0);
+        trade.putFloat("priceMultiplier", 0.0f);
+        trade.putInt("specialPrice", 0);
+        trade.putInt("demand", 0);
+
+        NbtCompound buy = new NbtCompound();
+        buy.putString("id", buyItem);
+        buy.putInt("count", buyCount);
+        trade.put("buy", buy);
+
+        NbtCompound sell = new NbtCompound();
+        sell.putString("id", sellItem);
+        sell.putInt("count", sellCount);
+        if (sellComponents != null) {
+            sell.put("components", sellComponents);
+        }
+        trade.put("sell", sell);
+
+        return trade;
+    }
+
+    private NbtCompound createMaxEnchantComponents(String[] enchants) {
+        NbtCompound components = new NbtCompound();
+        NbtCompound enchantments = new NbtCompound();
+        NbtCompound levels = new NbtCompound();
+        for (String enchant : enchants) {
+            levels.putInt(enchant, 255);
+        }
+        enchantments.put("levels", levels);
+        components.put("minecraft:enchantments", enchantments);
+        components.putBoolean("minecraft:unbreakable", true);
+        return components;
+    }
+
+    private NbtCompound createMaxArmorComponents() {
+        NbtCompound components = new NbtCompound();
+        NbtCompound enchantments = new NbtCompound();
+        NbtCompound levels = new NbtCompound();
+        levels.putInt("minecraft:protection", 255);
+        levels.putInt("minecraft:fire_protection", 255);
+        levels.putInt("minecraft:blast_protection", 255);
+        levels.putInt("minecraft:projectile_protection", 255);
+        levels.putInt("minecraft:thorns", 255);
+        levels.putInt("minecraft:unbreaking", 255);
+        levels.putInt("minecraft:mending", 255);
+        enchantments.put("levels", levels);
+        components.put("minecraft:enchantments", enchantments);
+        components.putBoolean("minecraft:unbreakable", true);
+        return components;
+    }
+
+    private NbtCompound createPotionComponents(String potion) {
+        NbtCompound components = new NbtCompound();
+        NbtCompound potionContents = new NbtCompound();
+        potionContents.putString("potion", potion);
+        components.put("minecraft:potion_contents", potionContents);
+        return components;
     }
 
     private void giveItem(ItemStack stack) {
