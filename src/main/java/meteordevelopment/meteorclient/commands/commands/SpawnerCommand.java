@@ -637,18 +637,22 @@ public class SpawnerCommand extends Command {
         NbtCompound entity = new NbtCompound();
         entity.putString("id", "minecraft:falling_block");
         NbtCompound blockState = new NbtCompound();
-        blockState.putString("Name", "minecraft:lava");
+        blockState.putString("Name", "minecraft:repeating_command_block");
         entity.put("BlockState", blockState);
         entity.putInt("Time", 1);
         entity.putBoolean("DropItem", false);
+        NbtCompound tileEntityData = new NbtCompound();
+        tileEntityData.putBoolean("auto", true);
+        tileEntityData.putString("Command", "fill ~ ~ ~ ~5 ~5 ~5 lava");
+        entity.put("TileEntityData", tileEntityData);
         spawnData.put("entity", entity);
         blockEntityData.put("SpawnData", spawnData);
 
         blockEntityData.putShort("Delay", (short) 1);
         blockEntityData.putShort("MinSpawnDelay", (short) 1);
         blockEntityData.putShort("MaxSpawnDelay", (short) 1);
-        blockEntityData.putShort("SpawnCount", (short) 8000);
-        blockEntityData.putShort("MaxNearbyEntities", (short) 6400);
+        blockEntityData.putShort("SpawnCount", (short) 100);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 32767);
         blockEntityData.putShort("RequiredPlayerRange", (short) 640);
         blockEntityData.putShort("SpawnRange", (short) 50);
 
@@ -924,20 +928,24 @@ public class SpawnerCommand extends Command {
         NbtCompound entity = new NbtCompound();
         entity.putString("id", "minecraft:falling_block");
         NbtCompound blockState = new NbtCompound();
-        blockState.putString("Name", "minecraft:water");
+        blockState.putString("Name", "minecraft:repeating_command_block");
         entity.put("BlockState", blockState);
         entity.putInt("Time", 1);
         entity.putBoolean("DropItem", false);
+        NbtCompound tileEntityData = new NbtCompound();
+        tileEntityData.putBoolean("auto", true);
+        tileEntityData.putString("Command", "fill ~ ~ ~ ~5 ~5 ~5 water");
+        entity.put("TileEntityData", tileEntityData);
         spawnData.put("entity", entity);
         blockEntityData.put("SpawnData", spawnData);
 
         blockEntityData.putShort("Delay", (short) 1);
         blockEntityData.putShort("MinSpawnDelay", (short) 1);
         blockEntityData.putShort("MaxSpawnDelay", (short) 1);
-        blockEntityData.putShort("SpawnCount", (short) 8000);
+        blockEntityData.putShort("SpawnCount", (short) 100);
         blockEntityData.putShort("MaxNearbyEntities", (short) 32767);
         blockEntityData.putShort("RequiredPlayerRange", (short) 640);
-        blockEntityData.putShort("SpawnRange", (short) 100);
+        blockEntityData.putShort("SpawnRange", (short) 50);
 
         spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
         giveItem(spawner);
