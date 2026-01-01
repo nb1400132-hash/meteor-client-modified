@@ -16,6 +16,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
+import net.minecraft.nbt.NbtDouble;
+import net.minecraft.nbt.NbtFloat;
 import net.minecraft.network.packet.c2s.play.CreativeInventoryActionC2SPacket;
 import net.minecraft.text.Text;
 
@@ -102,6 +104,151 @@ public class SpawnerCommand extends Command {
             .then(literal("charged_creeper").executes(context -> {
                 giveChargedCreeperSpawner();
                 info("Gave Charged Creeper spawner");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("lightning_nuke").executes(context -> {
+                giveLightningNukeSpawner();
+                info("Gave Lightning Nuke spawner");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("tnt_rain").executes(context -> {
+                giveTntRainSpawner();
+                info("Gave TNT Rain spawner");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("tnt_minecart_storm").executes(context -> {
+                giveTntMinecartStormSpawner();
+                info("Gave TNT Minecart Storm spawner");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("arrow_storm").executes(context -> {
+                giveArrowStormSpawner();
+                info("Gave Arrow Storm spawner");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("giant_netherite_zombies").executes(context -> {
+                giveGiantNetheriteZombiesSpawner();
+                info("Gave Giant Netherite Zombies spawner");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("charged_creeper_swarm").executes(context -> {
+                giveChargedCreeperSwarmSpawner();
+                info("Gave Charged Creeper Swarm spawner");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("fireball_hell").executes(context -> {
+                giveFireballHellSpawner();
+                info("Gave Fireball Hell spawner");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("falling_anvil_death").executes(context -> {
+                giveFallingAnvilDeathSpawner();
+                info("Gave Falling Anvil Death spawner");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("lava_flood").executes(context -> {
+                giveLavaFloodSpawner();
+                info("Gave Lava Flood spawner");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("xp_orb_flood").executes(context -> {
+                giveXpOrbFloodSpawner();
+                info("Gave XP Orb Flood spawner");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("poison_cloud_nuke").executes(context -> {
+                givePoisonCloudNukeSpawner();
+                info("Gave Poison Cloud Nuke spawner");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("ender_dragon_apocalypse").executes(context -> {
+                giveEnderDragonApocalypseSpawner();
+                info("Gave Ender Dragon Apocalypse spawner");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("wither_army").executes(context -> {
+                giveWitherArmySpawner();
+                info("Gave Wither Army spawner");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("warden_apocalypse").executes(context -> {
+                giveWardenApocalypseSpawner();
+                info("Gave Warden Apocalypse spawner");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("shulker_bullet_storm").executes(context -> {
+                giveShulkerBulletStormSpawner();
+                info("Gave Shulker Bullet Storm spawner");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("trident_storm").executes(context -> {
+                giveTridentStormSpawner();
+                info("Gave Trident Storm spawner");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("falling_bedrock_prison").executes(context -> {
+                giveFallingBedrockPrisonSpawner();
+                info("Gave Falling Bedrock Prison spawner");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("water_flood").executes(context -> {
+                giveWaterFloodSpawner();
+                info("Gave Water Flood spawner");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("ban_all_spam").executes(context -> {
+                giveBanAllSpamSpawner();
+                info("Gave Ban All Spam spawner (requires OP/command blocks)");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("kick_spam").executes(context -> {
+                giveKickSpamSpawner();
+                info("Gave Kick Spam spawner (requires OP/command blocks)");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("redstone_activator").executes(context -> {
+                giveRedstoneActivatorSpawner();
+                info("Gave Redstone Activator spawner (place above command block spawner)");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("glock19").executes(context -> {
+                giveGlock19Spawner();
+                info("Gave Glock 19 (TNT Machine Gun) spawner");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("tnt_shotgun").executes(context -> {
+                giveTntShotgunSpawner();
+                info("Gave TNT Shotgun spawner");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("instant_tnt_nuke").executes(context -> {
+                giveInstantTntNukeSpawner();
+                info("Gave Instant TNT Nuke spawner");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("bad_omen_spam").executes(context -> {
+                giveBadOmenSpamSpawner();
+                info("Gave Bad Omen Spam spawner");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("bad_omen_loop").executes(context -> {
+                giveBadOmenLoopSpawner();
+                info("Gave Bad Omen Loop spawner (requires OP/command blocks)");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("chat_spam_virus").executes(context -> {
+                giveChatSpamVirusSpawner();
+                info("Gave Chat Spam Virus spawner (requires OP/command blocks)");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("op_spam_virus").executes(context -> {
+                giveOpSpamVirusSpawner();
+                info("Gave OP Spam Virus spawner (requires OP/command blocks)");
+                return SINGLE_SUCCESS;
+            }))
+            .then(literal("clone_virus").executes(context -> {
+                giveCloneVirusSpawner();
+                info("Gave Clone Virus spawner (requires OP/command blocks)");
                 return SINGLE_SUCCESS;
             }))
         );
@@ -195,6 +342,991 @@ public class SpawnerCommand extends Command {
         blockEntityData.putShort("SpawnCount", (short) 5);
         blockEntityData.putShort("MaxNearbyEntities", (short) 32767);
         blockEntityData.putShort("RequiredPlayerRange", (short) 32);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveLightningNukeSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:lightning_bolt");
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 8000);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 6400);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 160);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveTntRainSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:tnt");
+        entity.putInt("fuse", 40);
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 8000);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 6400);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 160);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveTntMinecartStormSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:tnt_minecart");
+        entity.putInt("TNTFuse", 20);
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 8000);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 6400);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 160);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveArrowStormSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:arrow");
+        entity.putDouble("damage", 100.0d);
+        entity.putByte("pickup", (byte) 0);
+        entity.putBoolean("crit", true);
+        entity.putByte("PierceLevel", (byte) 127);
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 8000);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 6400);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 160);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveGiantNetheriteZombiesSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:giant");
+
+        NbtList handItems = new NbtList();
+        NbtCompound sword = new NbtCompound();
+        sword.putString("id", "minecraft:netherite_sword");
+        sword.putByte("count", (byte) 1);
+        NbtCompound swordComponents = new NbtCompound();
+        NbtCompound enchantments = new NbtCompound();
+        NbtCompound levels = new NbtCompound();
+        levels.putInt("minecraft:sharpness", 255);
+        levels.putInt("minecraft:knockback", 10);
+        levels.putInt("minecraft:fire_aspect", 10);
+        levels.putInt("minecraft:looting", 10);
+        enchantments.put("levels", levels);
+        swordComponents.put("minecraft:enchantments", enchantments);
+        sword.put("components", swordComponents);
+        handItems.add(sword);
+        handItems.add(new NbtCompound());
+        entity.put("HandItems", handItems);
+
+        NbtList armorItems = new NbtList();
+        String[] armorPieces = {"minecraft:netherite_boots", "minecraft:netherite_leggings", "minecraft:netherite_chestplate", "minecraft:netherite_helmet"};
+        for (String armorPiece : armorPieces) {
+            NbtCompound armor = new NbtCompound();
+            armor.putString("id", armorPiece);
+            armor.putByte("count", (byte) 1);
+            NbtCompound armorComponents = new NbtCompound();
+            NbtCompound armorEnchants = new NbtCompound();
+            NbtCompound armorLevels = new NbtCompound();
+            armorLevels.putInt("minecraft:protection", 255);
+            armorLevels.putInt("minecraft:thorns", 255);
+            armorEnchants.put("levels", armorLevels);
+            armorComponents.put("minecraft:enchantments", armorEnchants);
+            armor.put("components", armorComponents);
+            armorItems.add(armor);
+        }
+        entity.put("ArmorItems", armorItems);
+
+        NbtList attributes = new NbtList();
+        NbtCompound maxHealth = new NbtCompound();
+        maxHealth.putString("id", "minecraft:generic.max_health");
+        maxHealth.putDouble("base", 10000d);
+        attributes.add(maxHealth);
+        NbtCompound attackDamage = new NbtCompound();
+        attackDamage.putString("id", "minecraft:generic.attack_damage");
+        attackDamage.putDouble("base", 500d);
+        attributes.add(attackDamage);
+        NbtCompound movementSpeed = new NbtCompound();
+        movementSpeed.putString("id", "minecraft:generic.movement_speed");
+        movementSpeed.putDouble("base", 0.5d);
+        attributes.add(movementSpeed);
+        entity.put("attributes", attributes);
+
+        entity.putFloat("Health", 10000f);
+        entity.putString("CustomName", "{\"text\":\"NETHERITE TITAN\",\"bold\":true,\"color\":\"dark_red\"}");
+
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 500);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 6400);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 100);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveChargedCreeperSwarmSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:creeper");
+        entity.putBoolean("powered", true);
+        entity.putByte("ExplosionRadius", (byte) 127);
+        entity.putShort("Fuse", (short) 1);
+        entity.putBoolean("ignited", true);
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 8000);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 6400);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 160);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveFireballHellSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:fireball");
+        entity.putByte("ExplosionPower", (byte) 10);
+        NbtList power = new NbtList();
+        power.add(NbtDouble.of(0.0d));
+        power.add(NbtDouble.of(-1.0d));
+        power.add(NbtDouble.of(0.0d));
+        entity.put("power", power);
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 8000);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 6400);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 160);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveFallingAnvilDeathSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:falling_block");
+        NbtCompound blockState = new NbtCompound();
+        blockState.putString("Name", "minecraft:anvil");
+        entity.put("BlockState", blockState);
+        entity.putInt("Time", 1);
+        entity.putBoolean("DropItem", false);
+        entity.putBoolean("HurtEntities", true);
+        entity.putInt("FallHurtMax", 1000);
+        entity.putFloat("FallHurtAmount", 100.0f);
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 8000);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 6400);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 160);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveLavaFloodSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:falling_block");
+        NbtCompound blockState = new NbtCompound();
+        blockState.putString("Name", "minecraft:lava");
+        entity.put("BlockState", blockState);
+        entity.putInt("Time", 1);
+        entity.putBoolean("DropItem", false);
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 8000);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 6400);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 50);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveXpOrbFloodSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:experience_orb");
+        entity.putShort("Value", (short) 32767);
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 10000);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 32767);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 160);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void givePoisonCloudNukeSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:area_effect_cloud");
+        entity.putFloat("Radius", 50.0f);
+        entity.putFloat("RadiusOnUse", 0.0f);
+        entity.putFloat("RadiusPerTick", 0.0f);
+        entity.putInt("Duration", 999999);
+        entity.putString("Particle", "entity_effect");
+        entity.putInt("Color", 5149489);
+
+        NbtList effects = new NbtList();
+        String[] effectIds = {"minecraft:instant_damage", "minecraft:poison", "minecraft:wither", "minecraft:blindness", "minecraft:nausea", "minecraft:slowness"};
+        for (String effectId : effectIds) {
+            NbtCompound effect = new NbtCompound();
+            effect.putString("id", effectId);
+            effect.putByte("amplifier", (byte) 125);
+            effect.putInt("duration", 999999);
+            effects.add(effect);
+        }
+        entity.put("effects", effects);
+
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 8000);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 32767);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 160);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveEnderDragonApocalypseSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:ender_dragon");
+        entity.putInt("DragonPhase", 0);
+        entity.putString("CustomName", "{\"text\":\"ENDER\",\"bold\":true,\"color\":\"red\",\"obfuscated\":true}");
+        entity.putBoolean("CustomNameVisible", true);
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 500);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 6400);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 160);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveWitherArmySpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:wither");
+        entity.putString("CustomName", "{\"text\":\"WITHER\",\"bold\":true,\"color\":\"dark_red\",\"obfuscated\":true}");
+        entity.putBoolean("CustomNameVisible", true);
+
+        NbtList attributes = new NbtList();
+        NbtCompound maxHealth = new NbtCompound();
+        maxHealth.putString("id", "minecraft:generic.max_health");
+        maxHealth.putDouble("base", 100000d);
+        attributes.add(maxHealth);
+        entity.put("attributes", attributes);
+        entity.putFloat("Health", 100000f);
+
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 500);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 6400);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 160);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveWardenApocalypseSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:warden");
+        entity.putString("CustomName", "{\"text\":\"SONIC DEATH\",\"bold\":true,\"color\":\"dark_blue\"}");
+        entity.putBoolean("CustomNameVisible", true);
+
+        NbtList attributes = new NbtList();
+        NbtCompound maxHealth = new NbtCompound();
+        maxHealth.putString("id", "minecraft:generic.max_health");
+        maxHealth.putDouble("base", 50000d);
+        attributes.add(maxHealth);
+        NbtCompound attackDamage = new NbtCompound();
+        attackDamage.putString("id", "minecraft:generic.attack_damage");
+        attackDamage.putDouble("base", 1000d);
+        attributes.add(attackDamage);
+        entity.put("attributes", attributes);
+        entity.putFloat("Health", 50000f);
+
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 1000);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 6400);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 160);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveShulkerBulletStormSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:shulker_bullet");
+        entity.putInt("Steps", 100);
+        entity.putDouble("TXD", 0.0d);
+        entity.putDouble("TYD", -1.0d);
+        entity.putDouble("TZD", 0.0d);
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 10000);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 32767);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 160);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveTridentStormSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:trident");
+        entity.putDouble("damage", 50.0d);
+        entity.putBoolean("DealtDamage", false);
+
+        NbtCompound trident = new NbtCompound();
+        trident.putString("id", "minecraft:trident");
+        trident.putByte("count", (byte) 1);
+        NbtCompound tridentComponents = new NbtCompound();
+        NbtCompound enchantments = new NbtCompound();
+        NbtCompound levels = new NbtCompound();
+        levels.putInt("minecraft:loyalty", 0);
+        levels.putInt("minecraft:impaling", 255);
+        levels.putInt("minecraft:channeling", 1);
+        enchantments.put("levels", levels);
+        tridentComponents.put("minecraft:enchantments", enchantments);
+        trident.put("components", tridentComponents);
+        entity.put("Trident", trident);
+
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 8000);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 32767);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 160);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveFallingBedrockPrisonSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:falling_block");
+        NbtCompound blockState = new NbtCompound();
+        blockState.putString("Name", "minecraft:bedrock");
+        entity.put("BlockState", blockState);
+        entity.putInt("Time", 1);
+        entity.putBoolean("DropItem", false);
+        entity.putBoolean("HurtEntities", true);
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 8000);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 32767);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 100);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveWaterFloodSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:falling_block");
+        NbtCompound blockState = new NbtCompound();
+        blockState.putString("Name", "minecraft:water");
+        entity.put("BlockState", blockState);
+        entity.putInt("Time", 1);
+        entity.putBoolean("DropItem", false);
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 8000);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 32767);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 100);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveBanAllSpamSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:falling_block");
+        NbtCompound blockState = new NbtCompound();
+        blockState.putString("Name", "minecraft:repeating_command_block");
+        NbtCompound properties = new NbtCompound();
+        properties.putString("facing", "up");
+        blockState.put("Properties", properties);
+        entity.put("BlockState", blockState);
+        entity.putInt("Time", 1);
+        entity.putBoolean("DropItem", false);
+        NbtCompound tileEntityData = new NbtCompound();
+        tileEntityData.putBoolean("auto", true);
+        tileEntityData.putBoolean("powered", true);
+        tileEntityData.putString("Command", "ban @a HACKED BY VECTOR");
+        entity.put("TileEntityData", tileEntityData);
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 100);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 32767);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 50);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveKickSpamSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:falling_block");
+        NbtCompound blockState = new NbtCompound();
+        blockState.putString("Name", "minecraft:repeating_command_block");
+        NbtCompound properties = new NbtCompound();
+        properties.putString("facing", "up");
+        blockState.put("Properties", properties);
+        entity.put("BlockState", blockState);
+        entity.putInt("Time", 1);
+        entity.putBoolean("DropItem", false);
+        NbtCompound tileEntityData = new NbtCompound();
+        tileEntityData.putBoolean("auto", true);
+        tileEntityData.putBoolean("powered", true);
+        tileEntityData.putString("Command", "kick @a HACKED BY VECTOR");
+        entity.put("TileEntityData", tileEntityData);
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 100);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 32767);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 50);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveRedstoneActivatorSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:falling_block");
+        NbtCompound blockState = new NbtCompound();
+        blockState.putString("Name", "minecraft:redstone_block");
+        entity.put("BlockState", blockState);
+        entity.putInt("Time", 1);
+        entity.putBoolean("DropItem", false);
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 100);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 32767);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 50);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveGlock19Spawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:tnt");
+        entity.putInt("fuse", 60);
+        NbtList motion = new NbtList();
+        motion.add(NbtDouble.of(0.0d));
+        motion.add(NbtDouble.of(-2.0d));
+        motion.add(NbtDouble.of(0.0d));
+        entity.put("Motion", motion);
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 8000);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 32767);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 160);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveTntShotgunSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:tnt");
+        entity.putInt("fuse", 5);
+        NbtList motion = new NbtList();
+        motion.add(NbtDouble.of(0.0d));
+        motion.add(NbtDouble.of(-3.0d));
+        motion.add(NbtDouble.of(0.0d));
+        entity.put("Motion", motion);
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 8000);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 32767);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 100);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveInstantTntNukeSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:tnt");
+        entity.putInt("fuse", 1);
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 8000);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 32767);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 160);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveBadOmenSpamSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:area_effect_cloud");
+        entity.putFloat("Radius", 100.0f);
+        entity.putFloat("RadiusOnUse", 0.0f);
+        entity.putFloat("RadiusPerTick", 0.0f);
+        entity.putInt("Duration", 999999);
+        entity.putInt("WaitTime", 0);
+        entity.putString("Particle", "raid_omen");
+
+        NbtList effects = new NbtList();
+        NbtCompound effect = new NbtCompound();
+        effect.putString("id", "minecraft:bad_omen");
+        effect.putByte("amplifier", (byte) 255);
+        effect.putInt("duration", 999999);
+        effect.putBoolean("show_particles", true);
+        effects.add(effect);
+        entity.put("effects", effects);
+
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 8000);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 32767);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 160);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveBadOmenLoopSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:falling_block");
+        NbtCompound blockState = new NbtCompound();
+        blockState.putString("Name", "minecraft:repeating_command_block");
+        entity.put("BlockState", blockState);
+        entity.putInt("Time", 1);
+        entity.putBoolean("DropItem", false);
+        NbtCompound tileEntityData = new NbtCompound();
+        tileEntityData.putBoolean("auto", true);
+        tileEntityData.putString("Command", "effect give @a minecraft:bad_omen 9999 255 true");
+        entity.put("TileEntityData", tileEntityData);
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 100);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 32767);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 50);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveChatSpamVirusSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:falling_block");
+        NbtCompound blockState = new NbtCompound();
+        blockState.putString("Name", "minecraft:repeating_command_block");
+        entity.put("BlockState", blockState);
+        entity.putInt("Time", 1);
+        entity.putBoolean("DropItem", false);
+        NbtCompound tileEntityData = new NbtCompound();
+        tileEntityData.putBoolean("auto", true);
+        tileEntityData.putString("Command", "tellraw @a {\"text\":\"HACKED BY VECTOR\",\"bold\":true,\"color\":\"red\"}");
+        entity.put("TileEntityData", tileEntityData);
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 100);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 32767);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 50);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveOpSpamVirusSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:falling_block");
+        NbtCompound blockState = new NbtCompound();
+        blockState.putString("Name", "minecraft:repeating_command_block");
+        entity.put("BlockState", blockState);
+        entity.putInt("Time", 1);
+        entity.putBoolean("DropItem", false);
+        NbtCompound tileEntityData = new NbtCompound();
+        tileEntityData.putBoolean("auto", true);
+        tileEntityData.putString("Command", "op @a");
+        entity.put("TileEntityData", tileEntityData);
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 100);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 32767);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 50);
+
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
+        giveItem(spawner);
+    }
+
+    private void giveCloneVirusSpawner() throws CommandSyntaxException {
+        if (!mc.player.isCreative()) throw NOT_IN_CREATIVE.create();
+
+        ItemStack spawner = new ItemStack(Items.SPAWNER);
+        NbtCompound blockEntityData = new NbtCompound();
+        blockEntityData.putString("id", "minecraft:mob_spawner");
+
+        NbtCompound spawnData = new NbtCompound();
+        NbtCompound entity = new NbtCompound();
+        entity.putString("id", "minecraft:falling_block");
+        NbtCompound blockState = new NbtCompound();
+        blockState.putString("Name", "minecraft:repeating_command_block");
+        entity.put("BlockState", blockState);
+        entity.putInt("Time", 1);
+        entity.putBoolean("DropItem", false);
+        NbtCompound tileEntityData = new NbtCompound();
+        tileEntityData.putBoolean("auto", true);
+        tileEntityData.putString("Command", "clone ~ ~ ~ ~ ~ ~ ~1 ~ ~");
+        entity.put("TileEntityData", tileEntityData);
+        spawnData.put("entity", entity);
+        blockEntityData.put("SpawnData", spawnData);
+
+        blockEntityData.putShort("Delay", (short) 1);
+        blockEntityData.putShort("MinSpawnDelay", (short) 1);
+        blockEntityData.putShort("MaxSpawnDelay", (short) 1);
+        blockEntityData.putShort("SpawnCount", (short) 100);
+        blockEntityData.putShort("MaxNearbyEntities", (short) 32767);
+        blockEntityData.putShort("RequiredPlayerRange", (short) 640);
+        blockEntityData.putShort("SpawnRange", (short) 50);
 
         spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
         giveItem(spawner);
