@@ -208,7 +208,7 @@ public class SuperAttributesCommand extends Command {
         addEntry(entries, EntityAttributes.ENTITY_INTERACTION_RANGE, 50, EntityAttributeModifier.Operation.ADD_VALUE);
         addEntry(entries, EntityAttributes.BLOCK_INTERACTION_RANGE, 50, EntityAttributeModifier.Operation.ADD_VALUE);
 
-        stack.set(DataComponentTypes.ATTRIBUTE_MODIFIERS, new AttributeModifiersComponent(entries, true));
+        stack.set(DataComponentTypes.ATTRIBUTE_MODIFIERS, new AttributeModifiersComponent(entries));
         giveItem(stack);
     }
 
@@ -226,7 +226,7 @@ public class SuperAttributesCommand extends Command {
         addEntry(entries, EntityAttributes.ENTITY_INTERACTION_RANGE, 2147483647, EntityAttributeModifier.Operation.ADD_VALUE);
         addEntry(entries, EntityAttributes.BLOCK_INTERACTION_RANGE, 2147483647, EntityAttributeModifier.Operation.ADD_VALUE);
 
-        stack.set(DataComponentTypes.ATTRIBUTE_MODIFIERS, new AttributeModifiersComponent(entries, true));
+        stack.set(DataComponentTypes.ATTRIBUTE_MODIFIERS, new AttributeModifiersComponent(entries));
         giveItem(stack);
     }
 
@@ -238,7 +238,7 @@ public class SuperAttributesCommand extends Command {
         addEntry(entries, EntityAttributes.ATTACK_KNOCKBACK, 1000, EntityAttributeModifier.Operation.ADD_VALUE);
         addEntry(entries, EntityAttributes.ENTITY_INTERACTION_RANGE, 100, EntityAttributeModifier.Operation.ADD_VALUE);
 
-        stack.set(DataComponentTypes.ATTRIBUTE_MODIFIERS, new AttributeModifiersComponent(entries, true));
+        stack.set(DataComponentTypes.ATTRIBUTE_MODIFIERS, new AttributeModifiersComponent(entries));
         giveItem(stack);
     }
 
@@ -250,7 +250,7 @@ public class SuperAttributesCommand extends Command {
         addEntry(entries, EntityAttributes.ARMOR_TOUGHNESS, 2147483647, EntityAttributeModifier.Operation.ADD_VALUE);
         addEntry(entries, EntityAttributes.KNOCKBACK_RESISTANCE, 1, EntityAttributeModifier.Operation.ADD_VALUE);
 
-        stack.set(DataComponentTypes.ATTRIBUTE_MODIFIERS, new AttributeModifiersComponent(entries, true));
+        stack.set(DataComponentTypes.ATTRIBUTE_MODIFIERS, new AttributeModifiersComponent(entries));
         giveItem(stack);
     }
 
@@ -260,7 +260,7 @@ public class SuperAttributesCommand extends Command {
         
         addEntry(entries, attribute, value, operation);
         
-        stack.set(DataComponentTypes.ATTRIBUTE_MODIFIERS, new AttributeModifiersComponent(entries, true));
+        stack.set(DataComponentTypes.ATTRIBUTE_MODIFIERS, new AttributeModifiersComponent(entries));
         giveItem(stack);
     }
 

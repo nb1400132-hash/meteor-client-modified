@@ -5,6 +5,7 @@ import meteordevelopment.meteorclient.settings.*;
 import meteordevelopment.meteorclient.systems.modules.Categories;
 import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.orbit.EventHandler;
+import net.minecraft.entity.Entity;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
 import net.minecraft.network.packet.c2s.play.VehicleMoveC2SPacket;
 import net.minecraft.util.math.Vec3d;
@@ -107,7 +108,7 @@ public class ServerCrasher extends Module {
     }
 
     private void sendMovementPackets() {
-        Vec3d pos = mc.player.getPos();
+        Vec3d pos = new Vec3d(mc.player.getX(), mc.player.getY(), mc.player.getZ());
         double dist = distance.get();
 
         for (int i = 0; i < packetsPerTick.get(); i++) {
@@ -164,9 +165,10 @@ public class ServerCrasher extends Module {
     }
 
     private void sendVehiclePackets() {
-        if (mc.player.getVehicle() == null) return;
+        Entity vehicle = mc.player.getVehicle();
+        if (vehicle == null) return;
 
-        Vec3d pos = mc.player.getVehicle().getPos();
+        Vec3d pos = new Vec3d(vehicle.getX(), vehicle.getY(), vehicle.getZ());
         double dist = distance.get();
 
         for (int i = 0; i < packetsPerTick.get(); i++) {
@@ -174,8 +176,8 @@ public class ServerCrasher extends Module {
             double y = pos.y + (Math.random() - 0.5) * 100;
             double z = pos.z + (randomize.get() ? (Math.random() - 0.5) * dist * 2 : dist);
 
-            mc.player.getVehicle().setPos(x, y, z);
-            mc.getNetworkHandler().sendPacket(new VehicleMoveC2SPacket(mc.player.getVehicle()));
+            vehicle.setPos(x, y, z);
+            mc.getNetworkHandler().sendPacket(new VehicleMoveC2SPacket(new Vec3d(x, y, z), vehicle.getYaw(), vehicle.getPitch(), vehicle.isOnGround()));
         }
     }
 

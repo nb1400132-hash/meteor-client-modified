@@ -15,6 +15,8 @@ import net.minecraft.network.packet.c2s.play.CreativeInventoryActionC2SPacket;
 import net.minecraft.text.Text;
 import net.minecraft.util.DyeColor;
 
+import it.unimi.dsi.fastutil.ints.IntList;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -151,8 +153,8 @@ public class FireworkCommand extends Command {
 
             explosions.add(new FireworkExplosionComponent(
                 FireworkExplosionComponent.Type.LARGE_BALL,
-                colors.stream().mapToInt(Integer::intValue).toArray(),
-                fadeColors.stream().mapToInt(Integer::intValue).toArray(),
+                IntList.of(colors.stream().mapToInt(Integer::intValue).toArray()),
+                IntList.of(fadeColors.stream().mapToInt(Integer::intValue).toArray()),
                 true,
                 true
             ));
@@ -183,8 +185,8 @@ public class FireworkCommand extends Command {
         for (int color : rainbowColors) {
             explosions.add(new FireworkExplosionComponent(
                 FireworkExplosionComponent.Type.LARGE_BALL,
-                new int[]{color},
-                new int[]{0xFFFFFF},
+                IntList.of(color),
+                IntList.of(0xFFFFFF),
                 true,
                 true
             ));
@@ -202,8 +204,8 @@ public class FireworkCommand extends Command {
 
         explosions.add(new FireworkExplosionComponent(
             FireworkExplosionComponent.Type.CREEPER,
-            new int[]{0x00FF00},
-            new int[]{0x000000},
+            IntList.of(0x00FF00),
+            IntList.of(0x000000),
             true,
             false
         ));
@@ -220,8 +222,8 @@ public class FireworkCommand extends Command {
 
         explosions.add(new FireworkExplosionComponent(
             FireworkExplosionComponent.Type.STAR,
-            new int[]{0xFFFF00, 0xFFFFFF},
-            new int[]{0xFF0000},
+            IntList.of(0xFFFF00, 0xFFFFFF),
+            IntList.of(0xFF0000),
             true,
             true
         ));
@@ -238,8 +240,8 @@ public class FireworkCommand extends Command {
 
         explosions.add(new FireworkExplosionComponent(
             FireworkExplosionComponent.Type.BURST,
-            new int[]{0x00FFFF, 0xFF00FF, 0xFFFF00},
-            new int[]{0xFFFFFF},
+            IntList.of(0x00FFFF, 0xFF00FF, 0xFFFF00),
+            IntList.of(0xFFFFFF),
             true,
             true
         ));
@@ -264,8 +266,8 @@ public class FireworkCommand extends Command {
 
             explosions.add(new FireworkExplosionComponent(
                 FireworkExplosionComponent.Type.values()[random.nextInt(FireworkExplosionComponent.Type.values().length)],
-                colors,
-                fadeColors,
+                IntList.of(colors),
+                IntList.of(fadeColors),
                 true,
                 true
             ));
@@ -295,8 +297,8 @@ public class FireworkCommand extends Command {
 
         return new FireworkExplosionComponent(
             type,
-            colors,
-            fadeColors,
+            IntList.of(colors),
+            IntList.of(fadeColors),
             random.nextBoolean(),
             random.nextBoolean()
         );

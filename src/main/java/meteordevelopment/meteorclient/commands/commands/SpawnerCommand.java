@@ -7,9 +7,11 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
 import meteordevelopment.meteorclient.commands.Command;
 import net.minecraft.command.CommandSource;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.BlockStateComponent;
 import net.minecraft.component.type.NbtComponent;
+import net.minecraft.entity.TypedEntityData;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
@@ -138,7 +140,7 @@ public class SpawnerCommand extends Command {
         spawnPotentials.add(potential);
         blockEntityData.put("SpawnPotentials", spawnPotentials);
 
-        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, NbtComponent.of(blockEntityData));
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
 
         giveItem(spawner);
         info("Gave spawner: " + entityId + " (delay:" + delay + ", count:" + maxCount + ", range:" + range + ")");
@@ -166,7 +168,7 @@ public class SpawnerCommand extends Command {
         blockEntityData.putShort("MaxNearbyEntities", (short) 32767);
         blockEntityData.putShort("RequiredPlayerRange", (short) 32);
 
-        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, NbtComponent.of(blockEntityData));
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
         giveItem(spawner);
     }
 
@@ -194,7 +196,7 @@ public class SpawnerCommand extends Command {
         blockEntityData.putShort("MaxNearbyEntities", (short) 32767);
         blockEntityData.putShort("RequiredPlayerRange", (short) 32);
 
-        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, NbtComponent.of(blockEntityData));
+        spawner.set(DataComponentTypes.BLOCK_ENTITY_DATA, TypedEntityData.create(BlockEntityType.MOB_SPAWNER, blockEntityData));
         giveItem(spawner);
     }
 

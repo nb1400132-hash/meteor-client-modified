@@ -257,7 +257,7 @@ public class TargetStrafe extends Module {
     public String getInfoString() {
         if (target != null) {
             if (target instanceof PlayerEntity player) {
-                return player.getGameProfile().getName();
+                return player.getGameProfile().name();
             }
             return target.getType().getName().getString();
         }

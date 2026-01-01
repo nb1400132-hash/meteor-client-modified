@@ -16,6 +16,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 
@@ -247,23 +248,27 @@ public class AimLock extends Module {
     }
 
     private Vec3d getTargetPos(Entity entity) {
+        Vec3d pos = new Vec3d(entity.getX(), entity.getY(), entity.getZ());
         return switch (bodyTarget.get()) {
-            case Head -> entity.getPos().add(0, entity.getEyeHeight(entity.getPose()), 0);
-            case Body -> entity.getPos().add(0, entity.getHeight() / 2, 0);
-            case Feet -> entity.getPos();
+            case Head -> pos.add(0, entity.getEyeHeight(entity.getPose()), 0);
+            case Body -> pos.add(0, entity.getHeight() / 2, 0);
+            case Feet -> pos;
         };
     }
 
     private double getAngleTo(Entity entity) {
         Vec3d playerDir = mc.player.getRotationVec(1.0f);
-        Vec3d toEntity = entity.getPos().subtract(mc.player.getPos()).normalize();
+        Vec3d entityPos = new Vec3d(entity.getX(), entity.getY(), entity.getZ());
+        Vec3d playerPos = new Vec3d(mc.player.getX(), mc.player.getY(), mc.player.getZ());
+        Vec3d toEntity = entityPos.subtract(playerPos).normalize();
         return Math.toDegrees(Math.acos(playerDir.dotProduct(toEntity)));
     }
 
     private boolean hasArmor(PlayerEntity player) {
-        for (int i = 0; i < 4; i++) {
-            if (!player.getInventory().armor.get(i).isEmpty()) return true;
-        }
+        if (!player.getEquippedStack(EquipmentSlot.HEAD).isEmpty()) return true;
+        if (!player.getEquippedStack(EquipmentSlot.CHEST).isEmpty()) return true;
+        if (!player.getEquippedStack(EquipmentSlot.LEGS).isEmpty()) return true;
+        if (!player.getEquippedStack(EquipmentSlot.FEET).isEmpty()) return true;
         return false;
     }
 
@@ -274,7 +279,7 @@ public class AimLock extends Module {
     @Override
     public String getInfoString() {
         if (target != null && target instanceof PlayerEntity player) {
-            return player.getGameProfile().getName();
+            return player.getGameProfile().name();
         }
         return target != null ? target.getType().getName().getString() : null;
     }
